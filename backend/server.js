@@ -59,14 +59,12 @@ app.post("/login", async(req, res) => {
     const {username, password} = req.body
   
     const result = await db.get(`SELECT * FROM users WHERE username LIKE "${username}" AND password LIKE "${password}"`)
-    console.log(result)
     try{
         if(result){
             
             console.log("Login Success")
             const jwt_token = jwt.sign({username:username}, "forlogin")
             res.status(200).json({jwtToken: jwt_token})
-            console.log(jwt_token)
         }else{
             res.status(401).json({success:false, error: "*Invalid Credentials"})
             console.log("*Incalid Credentials")
@@ -76,12 +74,12 @@ app.post("/login", async(req, res) => {
     }
 })
 
-app.get("/", async(req, res)=> {
-    const result = `SELECT * FROM users WHERE username LIKE "kamal1"`
-    const ress = await db.get(result)
-    res.send(ress)
-    console.log(ress)
-    if(ress === undefined){
-        console.log("not available")
-    }
-})
+// app.get("/", async(req, res)=> {
+//     const result = `SELECT * FROM users WHERE username LIKE "kamal1"`
+//     const ress = await db.get(result)
+//     res.send(ress)
+//     console.log(ress)
+//     if(ress === undefined){
+//         console.log("not available")
+//     }
+// })

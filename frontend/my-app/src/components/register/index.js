@@ -18,7 +18,7 @@ const Register = () => {
         if(username === "" || password === ""){
             setErr("*Please Fill Username and Password")
         }else{
-            const url = 'http://localhost:5001/register'
+            const url = 'https://mitt-arv-assignment-fnbl.onrender.com/register'
         const options = {
             method: "POST",
             headers:{

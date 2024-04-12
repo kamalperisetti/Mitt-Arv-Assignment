@@ -16,7 +16,7 @@ const Login = () => {
             setErr("*Please Enter Username and Password")
         }
         else{
-            const url = "http://localhost:5001/login" 
+            const url = "https://mitt-arv-assignment-fnbl.onrender.com/login" 
             const options = {
                 method:"POST",
                 headers:{
